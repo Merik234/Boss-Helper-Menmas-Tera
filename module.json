@@ -2,15 +2,15 @@
     "name": "Boss-Helper (Menma's Tera)",
     "options": {
         "niceName": "BH",
-        "guiName": "Boss-Helper NG",
+        "guiName": "Boss-Helper lite (Menma's Tera)",
         "settingsFile": "config.json",
         "settingsMigrator": "settings_migrator.js",
         "settingsVersion": 25
     },
     "author": "HSDN / ZC / mopihu / Owyn / Lambda11 / Merik234",
     "description": "Displays information and notifications about spawning of merchants, world bosses and event monsters.",
-    "servers": ["https://raw.githubusercontent.com/Merik234/Boss-Helper-Menma-s-Tera/master/"],
-    "supportUrl": "https://github.com/Merik234/Boss-Helper-Menma-s-Tera/issues",
+    "servers": ["https://raw.githubusercontent.com/Merik234/Boss-Helper-Menmas-Tera/master/"],
+    "supportUrl": "https://github.com/Merik234/Boss-Helper-Menmas-Tera/issues",
     "dependencies": {
         "notifier": "https://raw.githubusercontent.com/SerenTera/tera-notifier/master/module.json"
     },
