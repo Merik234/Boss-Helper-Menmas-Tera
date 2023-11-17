@@ -9,29 +9,21 @@ const strings = {
 		"Enable/disable on-screen notification messages": "Включить/выключить сообщения уведомления на экране",
 		"Enable/disable send messages to party members": "Включить/выключить отправку сообщений членам группы",
 		"Enable/disable NPC Markers": "Включить/выключить маркеры NPC",
-		"Enable/disable instant teleport": "Включить/выключить мгновенный телепорт",
 		"Enable/disable BAM-HP-Bar feature": "Включить/выключить отображение HP рейдовых боссов",
 		"Remove marker from NPC": "Удалить маркер с NPC",
 		"Display the spawn times of Mystery Merchants": "Отобразить время появления тайных торговцев",
 		"Display Mystery Merchants locations of current zone": "Отобразить список позиций тайных торговцев для текущей зоны",
-		"Search for Mystery Merchants in current zone": "Запустить поиск торговцев в текущей зоне",
 		"Display the spawn times of World Bosses": "Отобразить время появления мировых боссов",
 		"Display World Bosses locations of current zone": "Отобразить список позиций мировых боссов для текущей зоны",
-		"Search for World Bosses in current zone": "Запустить поиск мировых боссов в текущей зоне",
 		"Display the spawn times of Raid Bosses": "Отобразить время появления рейдовых боссов",
 		"Display Raid Bosses locations of current zone": "Отобразить список позиций рейдовых боссов для текущей зоны",
-		"Search for Raid Bosses in current zone": "Запустить поиск рейдовых боссов в текущей зоне",
-		"Stop search": "Остановить поиск",
-		"Teleport to specified location": "Переместиться в указанную позицию",
 		"Use command": "Используйте команду",
-		"or racial skill for teleport there": "или расовый скил для телепортации туда",
 		"Enabled": "Вкл.",
 		"Disabled": "Выкл.",
 		"Alert messages": "Предупреждения",
 		"Notice messages": "Уведомления",
 		"Party messages": "Сообщения в группу",
 		"Spawn messages": "Сообщения о появлении",
-		"Instant teleport": "Мгновенный телепорт",
 		"BAM-HP-Bar feature": "Отображение HP рейдовых боссов",
 		"Position markers": "Отметка позиции",
 		"Position markers cleared": "Очищена отметка позиции",
@@ -45,10 +37,7 @@ const strings = {
 		"Spawned": "Появился",
 		"Refreshed": "Обновлен",
 		"Location": "Локация",
-		"Scan started": "Сканирование начато",
-		"Scan stopped": "Сканирование закончено",
 		"No positions for this zone": "Нет позиций для этой зоны",
-		"NPC is not found": "NPC не найден",
 		"channel": "канал",
 		"no data": "нет данных",
 		"spawned at": "появился в",
@@ -112,26 +101,16 @@ module.exports = function BossHelper(mod) {
 			MSG.chat(`${MSG.BLU("bh party")} - ${M("Enable/disable send messages to party members")}`);
 			MSG.chat(`${MSG.BLU("bh marker")} - ${M("Enable/disable NPC Markers")}`);
 			MSG.chat(`${MSG.BLU("bh clear")} - ${M("Remove marker from NPC")}`);
-			MSG.chat(`${MSG.BLU("bh teleport")} - ${M("Enable/disable instant teleport")}`);
 			MSG.chat(`${MSG.BLU("bh hpbar")} - ${M("Enable/disable BAM-HP-Bar feature")}`);
 			MSG.chat("========");
 			MSG.chat(`${MSG.BLU("mm")} - ${M("Display the spawn times of Mystery Merchants")}`);
 			MSG.chat(`${MSG.BLU("mm loc")} - ${M("Display Mystery Merchants locations of current zone")}`);
-			MSG.chat(`${MSG.BLU("mm scan")} - ${M("Search for Mystery Merchants in current zone")}`);
-			MSG.chat(`${MSG.BLU("mm stop")} - ${M("Stop search")}`);
-			MSG.chat(`${MSG.BLU("mm to ") + MSG.YEL("id")} - ${M("Teleport to specified location")}`);
 			MSG.chat("========");
 			MSG.chat(`${MSG.BLU("rb")} - ${M("Display the spawn times of Raid Bosses")}`);
 			MSG.chat(`${MSG.BLU("rb loc")} - ${M("Display Raid Bosses locations of current zone")}`);
-			MSG.chat(`${MSG.BLU("rb scan")} - ${M("Search for Raid Bosses in current zone")}`);
-			MSG.chat(`${MSG.BLU("rb stop")} - ${M("Stop search")}`);
-			MSG.chat(`${MSG.BLU("rb to ") + MSG.YEL("id")} - ${M("Teleport to specified location")}`);
 			MSG.chat("========");
 			MSG.chat(`${MSG.BLU("wb")} - ${M("Display the spawn times of World Bosses")}`);
 			MSG.chat(`${MSG.BLU("wb loc")} - ${M("Display World Bosses locations of current zone")}`);
-			MSG.chat(`${MSG.BLU("wb scan")} - ${M("Search for World Bosses in current zone")}`);
-			MSG.chat(`${MSG.BLU("wb stop")} - ${M("Stop search")}`);
-			MSG.chat(`${MSG.BLU("wb to ") + MSG.YEL("id")} - ${M("Teleport to specified location")}`);
 		},
 		"alert": () => {
 			mod.settings.alert = !mod.settings.alert;
@@ -157,10 +136,6 @@ module.exports = function BossHelper(mod) {
 			MSG.chat(`Boss-Helper: ${MSG.TIP(M("Position markers cleared"))}`);
 			spawnedNpcs.forEach(key => despawnMarker(key));
 		},
-		"teleport": () => {
-			mod.settings.teleport = !mod.settings.teleport;
-			MSG.chat(`${M("Instant teleport")}: ${mod.settings.teleport ? MSG.BLU(M("Enabled")) : MSG.YEL(M("Disabled"))}`);
-		},
 		"hpbar": () => {
 			mod.settings.hpbar = !mod.settings.hpbar;
 			MSG.chat(`${M("BAM-HP-Bar feature")}: ${mod.settings.hpbar ? MSG.BLU(M("Enabled")) : MSG.YEL(M("Disabled"))}`);
@@ -174,17 +149,13 @@ module.exports = function BossHelper(mod) {
 			if (!mod.settings.enabled) {
 				spawnedNpcs.forEach(key => despawnMarker(key));
 				spawnedNpcs.clear();
-				stopScan();
 			}
 		},
 		"$default": () => MSG.chat(`${MSG.RED(M("Unknown parameter"))}. ${M("Use command")}: ${MSG.BLU("bh help")}`)
 	});
 
 	mod.command.add(commands["merchants"], {
-		"to": arg => toZoneLocation("merchants", arg),
 		"loc": () => listZoneLocations("merchants"),
-		"scan": () => startScan("merchants"),
-		"stop": () => stopScan(),
 		"$none": () => {
 			MSG.chat(`======== ${M("Goblin").toUpperCase()} ========`);
 
@@ -287,10 +258,7 @@ module.exports = function BossHelper(mod) {
 	});
 
 	mod.command.add(commands["world_bosses"], {
-		"to": arg => toZoneLocation("world_bosses", arg),
 		"loc": () => listZoneLocations("world_bosses"),
-		"scan": () => startScan("world_bosses"),
-		"stop": () => stopScan(),
 		"$none": () => {
 			MSG.chat(`======== ${M("World Boss").toUpperCase()} ========`);
 
@@ -318,10 +286,7 @@ module.exports = function BossHelper(mod) {
 	});
 
 	mod.command.add(commands["raid_bosses"], {
-		"to": arg => toZoneLocation("raid_bosses", arg),
 		"loc": () => listZoneLocations("raid_bosses"),
-		"scan": () => startScan("raid_bosses"),
-		"stop": () => stopScan(),
 		"$none": () => {
 			MSG.chat(`======== ${M("Raid Boss").toUpperCase()} ========`);
 
@@ -370,10 +335,6 @@ module.exports = function BossHelper(mod) {
 		updateZoneLocations();
 	});
 
-	mod.game.on("leave_loading_screen", () => {
-		stopScan();
-	});
-
 	mod.hook("S_CURRENT_CHANNEL", 2, event => {
 		playerChannel = Number(event.channel);
 	});
@@ -418,12 +379,6 @@ module.exports = function BossHelper(mod) {
 				mapLink = getMapLink(searchZoneLocations[npc.type][seekPos - 1].map, event.loc, npc.fullName);
 
 				MSG.chat(`${MSG.BLU(M("Found"))} ${mapLink} ${M("Location")} ${MSG.YEL(searchZoneLocations[npc.type][seekPos - 1].index + 1)}`);
-
-				if (!mod.settings.teleport) {
-					MSG.chat(`${M("Use command")} ${MSG.BLU(`${commands[npc.type]} to ${searchZoneLocations[npc.type][seekPos - 1].index + 1}`)} ${M("or racial skill for teleport there")}.`);
-				}
-
-				stopScan();
 			}
 
 			if (mod.settings.marker && (npc.marker === undefined || npc.marker)) {
@@ -561,12 +516,6 @@ module.exports = function BossHelper(mod) {
 		}
 	});
 
-	function toZoneLocation(npcType, to) {
-		if (to && isNumber(to) && zoneLocations[npcType] !== undefined && zoneLocations[npcType][to - 1] !== undefined) {
-			teleport(zoneLocations[npcType][to - 1], true);
-		}
-	}
-
 	function listZoneLocations(npcType) {
 		updateZoneLocations();
 
@@ -683,52 +632,6 @@ module.exports = function BossHelper(mod) {
 		});
 	}
 
-	function startScan(npcType) {
-		if (!mod.settings.enabled) return;
-
-		updateZoneLocations();
-		stopScan();
-
-		if (searchZoneLocations[npcType] != undefined && searchZoneLocations[npcType].length > 0) {
-			if (lastPos) seekPos = lastPos;
-
-			MSG.chat(`${M("Scan started")} (${searchZoneLocations[npcType].length})...`);
-			mod.setInterval(searchNpc, 5000, npcType);
-			holdCharacter();
-		} else {
-			MSG.chat(MSG.RED(M("No positions for this zone")));
-			stopScan();
-		}
-	}
-
-	function searchNpc(npcType) {
-		seekPos++;
-
-		if (searchZoneLocations[npcType] != undefined && seekPos <= searchZoneLocations[npcType].length) {
-			MSG.chat(`${M("Location")} [${seekPos}/${searchZoneLocations[npcType].length}]: ${MSG.BLU(searchZoneLocations[npcType][seekPos - 1].name)}`);
-
-			teleport(searchZoneLocations[npcType][seekPos - 1], mod.settings.teleport);
-			holdCharacter();
-
-			lastPos = seekPos;
-		} else {
-			MSG.chat(MSG.RED(M("NPC is not found")));
-			stopScan();
-		}
-	}
-
-	function stopScan() {
-		if (lastPos) {
-			MSG.chat(`${M("Scan stopped")}`);
-		}
-
-		mod.clearAllIntervals();
-		unholdCharacter();
-
-		lastPos = null;
-		seekPos = 0;
-	}
-
 	function holdCharacter() {
 		mod.send("S_ADMIN_HOLD_CHARACTER", 2, {
 			"hold": true
@@ -740,46 +643,6 @@ module.exports = function BossHelper(mod) {
 		mod.send("S_ADMIN_HOLD_CHARACTER", 2, {
 			"hold": false
 		});
-	}
-
-	function teleport(newLoc, instant = false) {
-		if (!mod.settings.enabled) return;
-
-		let currTime = os.uptime() * 1000 + new Date().getMilliseconds() + 150;
-
-		if (currTime < playerTime) {
-			currTime = playerTime + 50;
-		}
-
-		fallProtect = true;
-		playerTime = currTime;
-
-		const direction = Math.atan2(newLoc.y - playerLocation.y, newLoc.x - playerLocation.x);
-		const modLoc = new Vec3(0, 0, 0);
-
-		Object.assign(modLoc, newLoc);
-		Object.assign(playerLocation, modLoc);
-
-		modLoc.z += 10;
-
-		mod.send("C_PLAYER_LOCATION", 5, {
-			"loc": modLoc,
-			"w": direction,
-			"lookdirection": direction,
-			"dest": modLoc,
-			"type": 7,
-			"jumpDistance": 0,
-			"inShuttle": false,
-			"time": playerTime
-		});
-
-		if (instant) {
-			mod.send("S_INSTANT_MOVE", 3, {
-				"gameId": mod.game.me.gameId,
-				"loc": modLoc,
-				"w": direction
-			});
-		}
 	}
 
 	function isNearLocation(loc, d = 50) {
