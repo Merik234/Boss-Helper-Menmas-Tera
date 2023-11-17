@@ -9,7 +9,7 @@
     },
     "author": "HSDN / ZC / mopihu / Owyn / Lambda11 / Merik234",
     "description": "Displays information and notifications about spawning of merchants, world bosses and event monsters.",
-    "servers": ["https://raw.githubusercontent.com/hsdn/Boss-Helper/master/"],
+    "servers": ["https://raw.githubusercontent.com/Merik234/Boss-Helper-Menma-s-Tera-/master/"],
     "supportUrl": "https://github.com/hsdn/Boss-Helper/issues",
     "dependencies": {
         "notifier": "https://raw.githubusercontent.com/SerenTera/tera-notifier/master/module.json"
