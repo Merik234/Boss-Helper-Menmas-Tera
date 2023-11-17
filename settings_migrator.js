@@ -5,7 +5,6 @@ const DefaultSettings = {
 	"notice": true,
 	"message": true,
 	"marker": true,
-	"teleport": false,
 	"hpbar": true,
 	"itemId": 88704,
 	"language": "auto",
