@@ -3,3 +3,4 @@ manifest-generator.bat
 manifest-generator.js
 Newtonsoft.Json.dll
 SHAGen.exe
+manifest.js
