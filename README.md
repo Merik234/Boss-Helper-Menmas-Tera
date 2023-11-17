@@ -1,16 +1,6 @@
-# Boss-Helper NG (Mystery Merchant Helper)
+# Boss-Helper lite (Mystery Merchant Helper)
 
-Displays information and notifications about spawning of the specified NPCs in the zone (event monster/world boss/guild boss/merchant).
-When an NPC spawnins in the visible range, it will be marked with a marker. There are functions of teleport and automatic search for NPCs. Available English and Russian languages (detects automatically).
-
-Отображение информации и уведомлений о появлении указанных NPC в зоне (ивентовый монстр/мировой босс/гильдийный босс/торговец). 
-При появлении NPC в видимом диапазоне, он будет отмечен маркером. Имеются функции телепортации и автоматического поиска NPC. Поддерживаются Русский и Английский языки (определяются автоматически).
-
-### Safety / Безопасность
-
-The automatic search function (the **scan** command) is easily detectable, therefore, if detected, you can get banned. Please use this feature at your own risk!
-
-Функция автоматического поиска (команда **scan**) является легко детектируемой, следовательно при обнаружении вы можете быть забанены. Используйте данную функцию на свой страх и риск!
+This mod is an update from https://github.com/hsdn/Boss-Helper for Menma's Tera (MT: The Dream) and its Nexus Merchants, including new locations - but with the option of teleporting disabled to comfort rules for mods on that server.
 
 ## Module Commands / Команды
 Toolbox(/8) | Command Description | Описание команды
@@ -22,17 +12,13 @@ Toolbox(/8) | Command Description | Описание команды
 **bh&nbsp;party** | Enable/disable send messages to party members. | Включить/выключить отправку сообщений членам группы.
 **bh&nbsp;marker** | Enable/disable NPC Markers. | Включить/выключить маркеры NPC.
 **bh&nbsp;clear** | Remove marker from NPC. | Удалить маркер с NPC.
-**bh&nbsp;teleport** | Enable/disable instant teleport. | Включить/выключить мгновенный телепорт.
 **bh&nbsp;hpbar** | Enable/disable BAM-HP-Bar feature. | Включить/выключить отображение HP рейдовых боссов.
 
 ### Mystery Merchants
 Toolbox(/8) | Command Description | Описание команды
 --- | --- | ---
 **mm** | Display respawn times of Mystery Merchants. | Отобразить время появления тайных торговцев.
-**mm&nbsp;scan** | Search for Mystery Merchants in current zone. | Запустить поиск торговцев в текущей зоне.
-**mm&nbsp;stop** | Stop search. | Остановить поиск.
 **mm&nbsp;loc** | Display Mystery Merchants locations of current zone. | Отобразить список позиций тайных торговцев для текущей зоны.
-**mm&nbsp;to&nbsp;&lt;id&gt;** | Teleport to specified location. | Переместиться в указанную позицию.
 
 * Display respawn times of Mystery Merchants (the **mm** command):   
   ![](https://i.imgur.com/MRSGHDo.png)
@@ -41,10 +27,7 @@ Toolbox(/8) | Command Description | Описание команды
 Toolbox(/8) | Command Description | Описание команды
 --- | --- | ---
 **wb** | Display respawn times of World Bosses. | Отобразить время появления мировых боссов.
-**wb&nbsp;scan** | Search for World Bosses in current zone. | Запустить поиск мировых боссов в текущей зоне.
-**wb&nbsp;stop** | Stop search. | Остановить поиск.
 **wb&nbsp;loc** | Display World Bosses locations of current zone. | Отобразить список позиций мировых боссов для текущей зоны.
-**wb&nbsp;to&nbsp;&lt;id&gt;** | Teleport to specified location. | Переместиться в указанную позицию.
 
 * Display respawn times of World Bosses (the **wb** command):   
   ![](https://i.imgur.com/RPXfTFV.png)
@@ -65,6 +48,7 @@ Toolbox(/8) | Command Description | Описание команды
   ![](https://i.imgur.com/tdIJKJv.png)
 * All NPC identifiers: https://github.com/neowutran/TeraDpsMeterData/tree/master/monsters
 * Merchant spawn locations: https://home.gamer.com.tw/creationCategory.php?owner=d0305011&c=444485
+* new locations: https://docs.google.com/spreadsheets/d/1TNG4pxxPCvOYy1_jmERlbXwA5DNcaebedF4m7XnXq6k/edit#gid=1098829944
 
 ## Credits
 - **[ZC](https://github.com/tera-mod)** - Original developer of the Boss-Helper module
