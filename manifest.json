@@ -3,7 +3,7 @@
         "README.md": "0ea9c0d9f42efadf2232615cdc30880168c96e66e2c4142d866b4b9090832dc9",
         "index.js": "7ba9e791c998fedb7f0ad630d2f016c46bc8f63c1db357cfb7f71ebbdff16875",
         "module.json": "59480f3aac11965c46d33293986de2b717b7ca52f2e42f34bb4477d6f06980c5",
-        "settings_migrator.js": "3d63f2eeac56cbc425bbdb98c7956c7caf97327d3618feb6bae90a60ad62e2a7"
+        "settings_migrator.js": "fcaa6c0d132511e5834ae5b59b17954566b4a1903d9d9af904662b12b823dff3"
     },
     "defs": {
         "C_CHAT": 1,
