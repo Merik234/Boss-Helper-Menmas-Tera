@@ -157,31 +157,6 @@ module.exports = function BossHelper(mod) {
 	mod.command.add(commands["merchants"], {
 		"loc": () => listZoneLocations("merchants"),
 		"$none": () => {
-			MSG.chat(`======== ${M("Goblin").toUpperCase()} ========`);
-
-			mod.settings.goblins.regions.forEach(region => {
-				if (region.logDiff === undefined) return;
-				const name = getName(region);
-
-				if (!mod.settings.goblins.logTime[serverId]) {
-					MSG.chat(` ${MSG.BLU(name)} ${MSG.GRY(M("no data"))}`);
-				} else {
-					let nextTime = mod.settings.goblins.logTime[serverId] + region.logDiff * 1000;
-
-					while (Date.now() > nextTime) {
-						nextTime += 24 * 60 * 60 * 1000;
-					}
-
-					const lastTime = nextTime - 24 * 60 * 60 * 1000;
-
-					if (lastTime < Date.now() && lastTime + 5 * 60 * 1000 >= Date.now()) {
-						MSG.chat(` ${MSG.PIK(name)} ${M("spawned at")} ${MSG.TIP(getTime(lastTime))}`);
-					} else {
-						MSG.chat(` ${MSG.BLU(name)} ${M("next")} ${MSG.TIP(getTime(nextTime))}`);
-					}
-				}
-			});
-
 			MSG.chat(`======== ${M("Merchant").toUpperCase()} ========`);
 			const regionGroups = [];
 
