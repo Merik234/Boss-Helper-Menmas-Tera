@@ -239,44 +239,44 @@ const DefaultSettings = {
 	"raid_bosses": {
 		"regions": [
 			{
-				"name": "Essenia",
-				"name_RU": "Эссения",
-				"zoneId": 7011,
+				"name": "Val Kaeli",
+				"name_RU": "Val Kaeli",
+				"zoneId": 8001,
 				"npcs": [
 					{
-						"huntingZoneId": 26,
-						"templateId": 5001,
+						"huntingZoneId": 49,
+						"templateId": 5000,
 						"logTime": {},
-						"name": "Ortan (Blessing Basin)",
-						"name_RU": "Ортан (Блаженное озеро)"
+						"name": "Argon Predator",
+						"name_RU": "Argon Predator"
 					}
 				]
 			},
 			{
-				"name": "Val Palrada",
-				"name_RU": "Вал-Палрада",
-				"zoneId": 7013,
+				"name": "Helkan District",
+				"name_RU": "Helkan District",
+				"zoneId": 8001,
 				"npcs": [
 					{
-						"huntingZoneId": 39,
-						"templateId": 501,
+						"huntingZoneId": 48,
+						"templateId": 7000,
 						"logTime": {},
-						"name": "Hazard (Quarantine Zone)",
-						"name_RU": "Хазар (Зона карантина)"
+						"name": "Suulvir Mastermind",
+						"name_RU": "Suulvir Mastermind"
 					}
 				]
 			},
 			{
-				"name": "Lorcada",
-				"name_RU": "Лоркада",
-				"zoneId": 7022,
+				"name": "Val Tirkai",
+				"name_RU": "Val Tirkai",
+				"zoneId": 7023,
 				"npcs": [
 					{
-						"huntingZoneId": 51,
-						"templateId": 4001,
+						"huntingZoneId": 45,
+						"templateId": 6000,
 						"logTime": {},
-						"name": "Cerrus",
-						"name_RU": "Кэлос"
+						"name": "Perdidrax",
+						"name_RU": "Perdidrax"
 					}
 				]
 			}
