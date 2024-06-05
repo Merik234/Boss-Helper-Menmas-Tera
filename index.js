@@ -274,8 +274,8 @@ module.exports = function BossHelper(mod) {
 					if (!boss.logTime[serverId]) {
 						MSG.chat(` ${MSG.BLU(name)} ${MSG.GRY(M("no data"))}`);
 					} else {
-						const nextTimeMax = boss.logTime[serverId] + (5 * 60 * 60 + 30 * 60) * 1000;
-						const nextTimeMin = nextTimeMax - 60 * 60 * 1000;
+						const nextTimeMax = boss.logTime[serverId] + 6.5 * 60 * 60 * 1000;
+						const nextTimeMin = nextTimeMax - 2.5 * 60 * 60 * 1000;
 
 						if (Date.now() < nextTimeMax) {
 							MSG.chat(` ${MSG.BLU(name)} ${M("next")} ${MSG.TIP(getTime(nextTimeMin, nextTimeMax))}`);
