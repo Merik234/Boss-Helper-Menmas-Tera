@@ -1,3 +1,5 @@
+# no longer supported
+
 # Boss-Helper lite (Mystery Merchant Helper)
 
 This mod is an update from https://github.com/hsdn/Boss-Helper for Menma's Tera (MT: The Dream) and its Nexus Merchants, including new locations - but with the options of teleporting and scanning removed to comfort rules for mods on that server.
